@@ -2,11 +2,55 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>GitHub Pagesサンプル</title>
+    <title>New Year Card</title>
+    <link rel="stylesheet" href="./style/new-year-card.css">
   </head>
-  <body>
-    <div>
-      サンプル
+  <body onload="setMark();">
+    <div class="new-year-card">
+      <h1 class="new-year-card-title">
+        謹賀新年
+      </h1>
+      <div class="boar">
+        <div class="body">
+          <div class="mark">
+          </div>
+          <div class="tail">
+            <div class="tail-head"></div>
+          </div>
+        </div>
+        <div class="head">
+          <div class="ear ear-right"></div>
+          <div class="eye eye-left"></div>
+          <div class="eye eye-right"></div>
+          <div class="nose"></div>
+          <div class="horn horn-left"></div>
+          <div class="horn horn-right"></div>
+        </div>
+        <div class="legs">
+          <div class="leg"></div>
+          <div class="leg"></div>
+          <div class="leg"></div>
+          <div class="leg"></div>
+        </div>
+      </div>
+      <div class="new-year-message">
+        新年のスタートです</br>
+        あなたにとって素敵な一年になりますように</br>
+        本年もよろしくお願いします
+      </div>
     </div>
+    <script>
+      function setMark() {
+        var fortunes = ['大吉', '吉', '中吉', '小吉'];
+        for (var i = fortunes.length - 1; 0 < i; i--) {
+          var r = Math.floor(Math.random() * (i + 1));
+          var tmp = fortunes[i];
+          fortunes[i] = fortunes[r];
+          fortunes[r] = tmp;
+        }
+        var mark = document.getElementsByClassName('mark')[0];
+        mark.innerHTML = fortunes[0];
+      }
+    </script>
   </body>
 </html>
